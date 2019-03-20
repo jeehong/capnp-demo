@@ -89,7 +89,7 @@ int main(int argc, char* argv[])
 	/* Deserializing */
 	{
 		struct capn rc;
-		int init_mem_ret = capn_init_mem(&rc, buf, sizeof(buf), 0 /* packed */);
+		int init_mem_ret = capn_init_mem(&rc, buf, TRANSFER_LENGTH_MAX, 0 /* packed */);
 		ASSERT_EQ(0, init_mem_ret);
 		Person_ptr rroot;
 		struct Person rp;
