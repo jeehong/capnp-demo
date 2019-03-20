@@ -26,8 +26,8 @@
 static capn_text chars_to_text(const char *chars) {
 	capn_text t;
 	t.len = (int) strlen(chars);
-    t.str = chars;
-    t.seg = NULL;
+	t.str = chars;
+	t.seg = NULL;
 
 	return (t);
 }
@@ -39,8 +39,7 @@ int main(int argc, char* argv[])
 
 	const char *name = "Jan";
 	const char *email = "jeehong2015@gmail.com";
-	const struct Date birth =
-	{
+	const struct Date birth = {
 		.year = 1992,
 		.month = 2,
 		.day = 5,
@@ -49,13 +48,13 @@ int main(int argc, char* argv[])
 	const char *phone0 = "17717032991";
 	const char *phone1 = "03922819473";
 	const struct Person_PhoneNumber pn0 = {
-      .number = chars_to_text(phone0),
-      .type = Person_PhoneNumber_Type_mobile,
-    };
-    const struct Person_PhoneNumber pn1 = {
-      .number = chars_to_text(phone1),
-      .type = Person_PhoneNumber_Type_home,
-    };
+		.number = chars_to_text(phone0),
+		.type = Person_PhoneNumber_Type_mobile,
+	};
+	const struct Person_PhoneNumber pn1 = {
+		.number = chars_to_text(phone1),
+		.type = Person_PhoneNumber_Type_home,
+	};
 
 	printf("Start processing!\nBuild time: %s,%s\n", __DATE__, __TIME__);
 	/* Serializing */
@@ -64,27 +63,27 @@ int main(int argc, char* argv[])
 		capn_init_malloc(&c);
 		capn_ptr cr = capn_root(&c);
 		struct capn_segment *cs = cr.seg;
-	    struct Person p;
+		struct Person p;
 
-	    p.name = chars_to_text(name);
+		p.name = chars_to_text(name);
 
-	    p.email = chars_to_text(email);
+		p.email = chars_to_text(email);
 
 		p.birthdate = new_Date(cs);
 		write_Date(&birth, p.birthdate);
 
-	    p.phones = new_Person_PhoneNumber_list(cs, 2);
-	    set_Person_PhoneNumber(&pn0, p.phones, 0);
-	    set_Person_PhoneNumber(&pn1, p.phones, 1);
+		p.phones = new_Person_PhoneNumber_list(cs, 2);
+		set_Person_PhoneNumber(&pn0, p.phones, 0);
+		set_Person_PhoneNumber(&pn1, p.phones, 1);
 
-	    Person_ptr pp = new_Person(cs);
-	    write_Person(&p, pp);
+		Person_ptr pp = new_Person(cs);
+		write_Person(&p, pp);
 
-	    int setp_ret = capn_setp(capn_root(&c), 0, pp.p);
-	    ASSERT_EQ(0, setp_ret);
+		int setp_ret = capn_setp(capn_root(&c), 0, pp.p);
+		ASSERT_EQ(0, setp_ret);
 
-	    sz = capn_write_mem(&c, buf, TRANSFER_LENGTH_MAX, 0 /* packed */);
-	    capn_free(&c);
+		sz = capn_write_mem(&c, buf, TRANSFER_LENGTH_MAX, 0 /* packed */);
+		capn_free(&c);
 	}
 	printf("Final data length is %d byte(s)\n", sz);
 	/* Deserializing */
