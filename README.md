@@ -31,22 +31,22 @@ sudo apt-get install capnp
 5. Setting the project environment in eclipse.
 6. Build and execute it in command line, you will see the log such as the following display.
 ```
-Start processing!
-Build time: Mar 20 2019,13:52:32
-Final data length is 160 byte(s)
+Start!
+Build time: Mar 21 2019,13:24:37
+Final data length is 160 byte(s).
+[100] Verifying...    Result: Successful!
+[101] Verifying...    Result: Successful!
+[105] Verifying...    Result: Successful!
+[106] Verifying...    Result: Successful!
 [107] Verifying...    Result: Successful!
-[108] Verifying...    Result: Successful!
-[112] Verifying...    Result: Successful!
+[109] Verifying...    Result: Successful!
 [113] Verifying...    Result: Successful!
 [114] Verifying...    Result: Successful!
-[116] Verifying...    Result: Successful!
-[120] Verifying...    Result: Successful!
-[121] Verifying...    Result: Successful!
-[125] Verifying...    Result: Successful!
-[126] Verifying...    Result: Successful!
-Successful!
+[118] Verifying...    Result: Successful!
+[119] Verifying...    Result: Successful!
+Finish!
 ```
 
-#End
+# End
 
 

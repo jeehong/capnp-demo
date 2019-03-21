@@ -25,6 +25,7 @@
 
 static capn_text chars_to_text(const char *chars) {
 	capn_text t;
+
 	t.len = (int) strlen(chars);
 	t.str = chars;
 	t.seg = NULL;
@@ -56,7 +57,7 @@ int main(int argc, char* argv[])
 		.type = Person_PhoneNumber_Type_home,
 	};
 
-	printf("Start processing!\nBuild time: %s,%s\n", __DATE__, __TIME__);
+	printf("Start!\nBuild time: %s,%s\n", __DATE__, __TIME__);
 	/* Serializing */
 	{
 		struct capn c;
@@ -85,7 +86,7 @@ int main(int argc, char* argv[])
 		sz = capn_write_mem(&c, buf, TRANSFER_LENGTH_MAX, 0 /* packed */);
 		capn_free(&c);
 	}
-	printf("Final data length is %d byte(s)\n", sz);
+	printf("Final data length is %d byte(s).\n", sz);
 	/* Deserializing */
 	{
 		struct capn rc;
@@ -119,6 +120,6 @@ int main(int argc, char* argv[])
 
 		capn_free(&rc);
 	}
-	printf("Successful!\n");
+	printf("Finish!\n");
 	return(0);
 }
