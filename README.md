@@ -27,6 +27,7 @@ note: **capnp** is a executable tool and you can install it by building source c
 sudo apt-get install capnp
 ```
 **capnpc-c** is a C language plugin for use with the **capnp**. it is made from c-capnproto project.
+
 4. You will find 2 files(demo.capnp.h demo.capnp.c) which is located in the folder with demo.capnp together.
 5. Setting the project environment in eclipse.
 6. Build and execute it in command line, you will see the log such as the following display.
