@@ -2,7 +2,7 @@
 
 Unix: [![Unix Build Status](https://travis-ci.org/capnproto/capnproto.svg?branch=master)](https://travis-ci.org/capnproto/capnproto) Windows: [![Windows Build Status](https://ci.appveyor.com/api/projects/status/9rxff2tujkae4hte?svg=true)](https://ci.appveyor.com/project/kentonv/capnproto)
 
-<img src='http://kentonv.github.com/capnproto/images/infinity-times-faster.png' style='width:334px; height:306px; float: right;'>
+<img src='pictures/infinity-times-faster.png' style='width:334px; height:306px; float: right;'>
 
 Cap'n Proto is an insanely fast data interchange format and capability-based RPC system. Think
 JSON, except binary. Or think [Protocol Buffers](https://github.com/google/protobuf), except faster.
@@ -32,6 +32,25 @@ sudo apt-get install capnp
 5. Setting the project environment in eclipse.
 6. Build and execute it in command line, you will see the log such as the following display.
 ```
+
+# 安装cmake & ninja
+sudo apt install cmake ninja-build
+
+# 打开根目录下CMakeLists.txt设置修改编译器
+
+# 在主项目目录下创建一个build目录并进入
+mkdir build
+cd build
+
+# 配置工程，使用Ninja生成构建文件
+cmake -G "Ninja" ..
+
+# 使用Ninja构建项目
+ninja
+
+# 执行目标文件
+./capnp-demo
+
 Start!
 Build time: Mar 21 2019,13:24:37
 Final data length is 160 byte(s).

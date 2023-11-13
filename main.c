@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
 		sz = capn_write_mem(&c, buf, TRANSFER_LENGTH_MAX, 0 /* packed */);
 		capn_free(&c);
 	}
-	printf("Final data length is %d byte(s).\n", sz);
+	printf("Final data length is %ld byte(s).\n", sz);
 	/* Deserializing */
 	{
 		struct capn rc;
